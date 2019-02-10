@@ -18,6 +18,8 @@ from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler, Stream, API, Cursor
 
 import twitter_credentials
+import numpy as np
+import pandas as pd
 
 # For specific user interaction
 class TwitterClient():
@@ -98,7 +100,7 @@ if __name__ == "__main__":
     
     twitter_streamer = TwitterStreamer()
     twitter_streamer.stream_tweets(fetched_tweets_filename, hash_tag_list) 
-
+    
     twitter_client = TwitterClient('realDonaldTrump')
-    print(twitter_client.get_tweets(1))
+    print(twitter_client.get_tweets(1)[0].text)
     """
